@@ -11,13 +11,6 @@ struct Day01: AdventDay {
   // Save your data in a corresponding text file in the `Data` directory.
   var data: String
   
-  // Splits input data into its component parts and convert from string.
-//  var entities: [[Int]] {
-//    data.split(separator: "\n\n").map {
-//      $0.split(separator: "\n").compactMap { Int($0) }
-//    }
-//  }
-  
   var stuff: [[Int]] {
     let nums = data.split(separator: "\n").map {
       $0.split(separator: " ").compactMap {Int($0)}
@@ -61,21 +54,16 @@ struct Day01: AdventDay {
     return total
   }
   
-  // Replace this with your solution for the first part of the day's challenge.
   func part1() -> Any {
     var totalDistance = 0
     for (index, num) in lists.0.enumerated() {
       totalDistance += abs(num - lists.1[index])
     }
     
-    print("total distance is \(totalDistance)")
     return totalDistance
   }
   
-  // Replace this with your solution for the second part of the day's challenge.
   func part2() -> Any {
-    // Sum the maximum entries in each set of data
-//    print(data)
     return mapCalculation
   }
 }
