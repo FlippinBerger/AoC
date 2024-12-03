@@ -10,12 +10,12 @@ import Foundation
 struct Day03: AdventDay {
   var data: String
   
-  var mulMatches: [Regex<Substring>.Match] {
-    data.matches(of: /mul\([0-9]{1,3},[0-9]{1,3}\)/)
+  func getMulMatches() -> [Regex<Substring>.Match] {
+    return data.matches(of: /mul\([0-9]{1,3},[0-9]{1,3}\)/)
   }
   
-  var conditionalMatches: [Regex<Substring>.Match] {
-    data.matches(of: /do\(\)|don't\(\)/)
+  func getConditionalMatches() -> [Regex<Substring>.Match] {
+    return data.matches(of: /do\(\)|don't\(\)/)
   }
   
   func getNumbersFromString(_ match: String) -> (Int, Int) {
@@ -32,6 +32,7 @@ struct Day03: AdventDay {
   }
   
   func part1() -> Any {
+    let mulMatches = getMulMatches()
     var sum = 0
     for match in mulMatches {
       let (one, two) = getNumbersFromString(match.description)
@@ -41,6 +42,9 @@ struct Day03: AdventDay {
   }
   
   func part2() -> Any {
+    let mulMatches = getMulMatches()
+    let conditionalMatches = getConditionalMatches()
+    
     var sum = 0
     var shouldCalculate = true
     
